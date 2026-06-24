@@ -116,7 +116,7 @@
     <!-- 3. Services Overview Section (With image_7cb089.jpg Background at 50% Opacity) -->
     <section id="services" class="py-20 md:py-28 relative bg-brand-black overflow-hidden">
         <!-- Background Image layer with 50% opacity -->
-        <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-100" style="background-image: url('image_7cb089.jpg');"></div>
+        <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-50" style="background-image: url('image_7cb089.jpg');"></div>
         
         <!-- Dark overlay to ensure crisp contrast with content text -->
         <div class="absolute inset-0 z-0 bg-black/40"></div>
@@ -379,39 +379,54 @@
         </div>
     </section>
 
-    <!-- Contact Form Section -->
+    <!-- Functional Contact Form Section -->
     <section id="contact" class="py-20 bg-brand-white">
         <div class="max-w-3xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-brand-black mb-2">Request A Project Quote</h2>
                 <p class="text-brand-grey">Ready to deploy scaling framework infrastructure? Get in touch today.</p>
             </div>
-            <form class="space-y-6">
+            
+            <!-- Form points directly to your unique Formspree URL -->
+            <form action="https://formspree.io/f/mkoloqbr" method="POST" class="space-y-6">
+                <!-- Row 1: Full Name & Company Name -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-semibold mb-2">Full Name</label>
-                        <input type="text" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-brand-orange" placeholder="John Doe">
+                        <input type="text" name="name" required class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-brand-orange" placeholder="John Doe">
                     </div>
                     <div>
-                        <label class="block text-sm font-semibold mb-2">Corporate Email</label>
-                        <input type="email" class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-brand-orange" placeholder="john@company.com">
+                        <label class="block text-sm font-semibold mb-2">Company Name</label>
+                        <input type="text" name="company" required class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-brand-orange" placeholder="Arcturus Link Ltd">
                     </div>
                 </div>
+
+                <!-- Row 2: Corporate Email -->
+                <div>
+                    <label class="block text-sm font-semibold mb-2">Corporate Email</label>
+                    <input type="email" name="email" required class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:border-brand-orange" placeholder="john@company.com">
+                </div>
+
+                <!-- Row 3: Service Selection -->
                 <div>
                     <label class="block text-sm font-semibold mb-2">Service Line Needed</label>
-                    <select class="w-full p-3 border border-gray-300 rounded bg-white focus:outline-none focus:border-brand-orange">
-                        <option>Network Infrastructure & Deployment</option>
-                        <option>CCTV & Structured Cabling</option>
-                        <option>Advanced Network Security</option>
-                        <option>Software Solutions & Services (Asset Tracking)</option>
-                        <option>Linux Server Management</option>
-                        <option>Supply of IT Hardware & Equipment</option>
+                    <select name="service" class="w-full p-3 border border-gray-300 rounded bg-white focus:outline-none focus:border-brand-orange">
+                        <option value="Network Infrastructure">Network Infrastructure & Deployment</option>
+                        <option value="CCTV & Cabling">CCTV & Structured Cabling</option>
+                        <option value="Advanced Security">Advanced Network Security</option>
+                        <option value="Software Solutions">Software Solutions & Services (Asset Tracking)</option>
+                        <option value="Linux Management">Linux Server Management</option>
+                        <option value="IT Hardware Supply">Supply of IT Hardware & Equipment</option>
                     </select>
                 </div>
+
+                <!-- Row 4: Message Brief -->
                 <div>
                     <label class="block text-sm font-semibold mb-2">Project Brief Description</label>
-                    <textarea class="w-full p-3 border border-gray-300 rounded h-32 focus:outline-none focus:border-brand-orange" placeholder="Tell us about your hardware, asset tracking, or network goals..."></textarea>
+                    <textarea name="message" required class="w-full p-3 border border-gray-300 rounded h-32 focus:outline-none focus:border-brand-orange" placeholder="Tell us about your hardware, asset tracking, or network goals..."></textarea>
                 </div>
+
+                <!-- Submit Button -->
                 <button type="submit" class="w-full bg-brand-orange hover:bg-orange-600 text-white font-bold py-4 rounded transition-colors shadow">
                     Submit Strategy Request
                 </button>
