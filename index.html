@@ -39,7 +39,7 @@
         }
         .service-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 10px 25px -5px rgba(255, 107, 53, 0.15);
+            box-shadow: 0 10px 25px -5px rgba(255, 107, 53, 0.3);
         }
     </style>
 </head>
@@ -48,7 +48,6 @@
     <!-- 1. Header/Navigation -->
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 bg-brand-white/95 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo Image Added Here -->
             <a href="#" class="flex items-center">
                 <img src="Arcturus Link Logo 2 Transparent.png" alt="Arcturus Link Logo" class="h-12 w-auto object-contain transition-all duration-300" id="header-logo">
             </a>
@@ -114,62 +113,68 @@
         </div>
     </section>
 
-    <!-- 3. Services Overview Section -->
-    <section id="services" class="py-20 md:py-28 bg-brand-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- 3. Services Overview Section (With image_7cb089.jpg Background at 50% Opacity) -->
+    <section id="services" class="py-20 md:py-28 relative bg-brand-black overflow-hidden">
+        <!-- Background Image layer with 50% opacity -->
+        <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-50" style="background-image: url('image_7cb089.jpg');"></div>
+        
+        <!-- Dark overlay to ensure crisp contrast with content text -->
+        <div class="absolute inset-0 z-0 bg-black/40"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Our Core Expertise</h2>
-                <p class="text-brand-grey text-lg">Tailor-made technology solutions optimized for your critical IT systems and business architecture.</p>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-white">Our Core Expertise</h2>
+                <p class="text-gray-300 text-lg">Tailor-made technology solutions optimized for your critical IT systems and business architecture.</p>
             </div>
 
             <!-- Grid Layout -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Card 1 -->
-                <div class="service-card bg-brand-white border border-gray-200 p-8 rounded-lg transition-all duration-300 flex flex-col justify-between">
+                <div class="service-card bg-black/50 backdrop-blur-md border border-gray-700/50 p-8 rounded-lg transition-all duration-300 flex flex-col justify-between">
                     <div>
                         <div class="text-brand-orange mb-5"><i data-lucide="globe" class="w-10 h-10"></i></div>
-                        <h3 class="text-xl font-bold mb-3">Network Infrastructure & Deployment</h3>
-                        <p class="text-brand-grey text-sm leading-relaxed">End-to-end design, implementation and optimization of enterprise-grade LAN/WAN systems.</p>
+                        <h3 class="text-xl font-bold mb-3 text-white">Network Infrastructure & Deployment</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">End-to-end design, implementation and optimization of enterprise-grade LAN/WAN systems.</p>
                     </div>
                 </div>
                 <!-- Card 2 -->
-                <div class="service-card bg-brand-white border border-gray-200 p-8 rounded-lg transition-all duration-300 flex flex-col justify-between">
+                <div class="service-card bg-black/50 backdrop-blur-md border border-gray-700/50 p-8 rounded-lg transition-all duration-300 flex flex-col justify-between">
                     <div>
                         <div class="text-brand-orange mb-5"><i data-lucide="cctv" class="w-10 h-10"></i></div>
-                        <h3 class="text-xl font-bold mb-3">CCTV & Structured Cabling</h3>
-                        <p class="text-brand-grey text-sm leading-relaxed">HD surveillance deployment, fiber-optic backbone installation and compliance-certified cabling solutions.</p>
+                        <h3 class="text-xl font-bold mb-3 text-white">CCTV & Structured Cabling</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">HD surveillance deployment, fiber-optic backbone installation and compliance-certified cabling solutions.</p>
                     </div>
                 </div>
                 <!-- Card 3 -->
-                <div class="service-card bg-brand-white border border-gray-200 p-8 rounded-lg transition-all duration-300 flex flex-col justify-between">
+                <div class="service-card bg-black/50 backdrop-blur-md border border-gray-700/50 p-8 rounded-lg transition-all duration-300 flex flex-col justify-between">
                     <div>
                         <div class="text-brand-orange mb-5"><i data-lucide="shield-check" class="w-10 h-10"></i></div>
-                        <h3 class="text-xl font-bold mb-3">Advanced Network Security</h3>
-                        <p class="text-brand-grey text-sm leading-relaxed">Firewall policy enforcement, Intrusion detection and zero-trust architecture integration.</p>
+                        <h3 class="text-xl font-bold mb-3 text-white">Advanced Network Security</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">Firewall policy enforcement, Intrusion detection and zero-trust architecture integration.</p>
                     </div>
                 </div>
                 <!-- Card 4 -->
-                <div class="service-card bg-brand-white border border-gray-200 p-8 rounded-lg transition-all duration-300 flex flex-col justify-between">
+                <div class="service-card bg-black/50 backdrop-blur-md border border-gray-700/50 p-8 rounded-lg transition-all duration-300 flex flex-col justify-between">
                     <div>
                         <div class="text-brand-orange mb-5"><i data-lucide="trending-up" class="w-10 h-10"></i></div>
-                        <h3 class="text-xl font-bold mb-3">Software Solutions & Services</h3>
-                        <p class="text-brand-grey text-sm leading-relaxed">End-to-end Asset Tracking & Management and streamlined Digital Stock Take Services to keep your inventory perfectly accurate.</p>
+                        <h3 class="text-xl font-bold mb-3 text-white">Software Solutions & Services</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">End-to-end Asset Tracking & Management and streamlined Digital Stock Take Services to keep your inventory perfectly accurate.</p>
                     </div>
                 </div>
                 <!-- Card 5 -->
-                <div class="service-card bg-brand-white border border-gray-200 p-8 rounded-lg transition-all duration-300 flex flex-col justify-between">
+                <div class="service-card bg-black/50 backdrop-blur-md border border-gray-700/50 p-8 rounded-lg transition-all duration-300 flex flex-col justify-between">
                     <div>
                         <div class="text-brand-orange mb-5"><i data-lucide="monitor" class="w-10 h-10"></i></div>
-                        <h3 class="text-xl font-bold mb-3">Linux Server Management</h3>
-                        <p class="text-brand-grey text-sm leading-relaxed">24/7 monitoring, patching, performance tuning and high-availability clustering.</p>
+                        <h3 class="text-xl font-bold mb-3 text-white">Linux Server Management</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">24/7 monitoring, patching, performance tuning and high-availability clustering.</p>
                     </div>
                 </div>
                 <!-- Card 6 -->
-                <div class="service-card bg-brand-white border border-gray-200 p-8 rounded-lg transition-all duration-300 flex flex-col justify-between">
+                <div class="service-card bg-black/50 backdrop-blur-md border border-gray-700/50 p-8 rounded-lg transition-all duration-300 flex flex-col justify-between">
                     <div>
                         <div class="text-brand-orange mb-5"><i data-lucide="cpu" class="w-10 h-10"></i></div>
-                        <h3 class="text-xl font-bold mb-3">Supply of IT Hardware & Equipment</h3>
-                        <p class="text-brand-grey text-sm leading-relaxed">Certified OEM procurement, bulk deployment logistics and warranty-backed hardware provisioning.</p>
+                        <h3 class="text-xl font-bold mb-3 text-white">Supply of IT Hardware & Equipment</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">Certified OEM procurement, bulk deployment logistics and warranty-backed hardware provisioning.</p>
                     </div>
                 </div>
             </div>
@@ -418,7 +423,6 @@
     <footer class="bg-brand-black text-white pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
             <div>
-                <!-- Logo Image Added to Footer with a light filter to make it pop over dark backgrounds -->
                 <a href="#" class="block mb-6">
                     <img src="Arcturus Link Logo 2 Transparent.png" alt="Arcturus Link Logo" class="h-14 w-auto object-contain brightness-0 invert">
                 </a>
