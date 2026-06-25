@@ -41,6 +41,58 @@
             transform: translateY(-4px);
             box-shadow: 0 10px 25px -5px rgba(255, 107, 53, 0.3);
         }
+
+        /* Continuous Hardware Row Shift */
+        @keyframes scrollMarquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-50% - 12px));
+            }
+        }
+
+        .marquee-rail {
+            display: flex;
+            /* Updated to 60s to accommodate the larger track of 19 logos */
+            animation: scrollMarquee 60s linear infinite; 
+        }
+
+        /* Precision Interaction Stops */
+        .hover-pause-animation:hover,
+        .hover\:pause-animation:hover {
+            animation-play-state: paused !important;
+        }
+
+        /* Vignette Edge Blending for modern aesthetic */
+        .generic-marquee-container::before,
+        .generic-marquee-container::after {
+            background: linear-gradient(to right, rgba(249, 250, 251, 1) 0%, rgba(249, 250, 251, 0) 100%);
+            content: "";
+            height: 100%;
+            position: absolute;
+            width: 150px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .generic-marquee-container::before {
+            left: 0;
+            top: 0;
+        }
+
+        .generic-marquee-container::after {
+            right: 0;
+            top: 0;
+            transform: rotateZ(180deg);
+        }
+        
+        @media (max-w: 640px) {
+            .generic-marquee-container::before,
+            .generic-marquee-container::after {
+                width: 50px;
+            }
+        }
     </style>
 </head>
 <body class="font-sans antialiased bg-brand-white text-brand-black selection:bg-brand-orange selection:text-white">
@@ -113,7 +165,7 @@
         </div>
     </section>
 
-    <!-- 3. Services Overview Section (With image_7cb089.jpg Background at 50% Opacity) -->
+    <!-- 3. Services Overview Section -->
     <section id="services" class="py-20 md:py-28 relative bg-brand-black overflow-hidden">
         <!-- Background Image layer with 50% opacity -->
         <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-50" style="background-image: url('image_7cb089.jpg');"></div>
@@ -177,6 +229,212 @@
                         <p class="text-gray-300 text-sm leading-relaxed">Certified OEM procurement, bulk deployment logistics and warranty-backed hardware provisioning.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrated Strategic Partners & Brands Marquee Section -->
+    <section id="partners-marquee" class="py-12 bg-gray-50 border-t border-b border-gray-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 mb-6">
+            <p class="text-center text-xs font-bold tracking-widest text-brand-grey uppercase">
+                Our Enterprise Infrastructure & Hardware Ecosystem
+            </p>
+        </div>
+
+        <!-- Infinite Carousel Component Wrapper -->
+        <div class="relative w-full overflow-hidden generic-marquee-container">
+            
+            <!-- Inner Scrolling Rail -->
+            <div class="flex w-max space-x-6 marquee-rail hover:pause-animation">
+                
+                <!-- --- LOOP 1: Initial Logo Set --- -->
+                <!-- Cisco -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="cisco.png" alt="Cisco" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- Fortinet -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="fortinet.png" alt="Fortinet" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- Dell -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="dell.png" alt="Dell Enterprise" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- Hewlett Packard Enterprise -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="Hewlett_Packard.png" alt="HPE" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- HPE Aruba Networking -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="hpe-aruba.png" alt="HPE Aruba" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- H3C -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="h3c.png" alt="H3C Technologies" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- Hikvision -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="Hikvision.png" alt="Hikvision Global" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- Dahua Technology -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="dahua.png" alt="Dahua Technology" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- Honeywell -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="honeywell.png" alt="Honeywell Security" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: Huawei -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="huawei.png" alt="Huawei" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: Kaspersky -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="kaspersky.png" alt="Kaspersky" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: Microsoft -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="microsoft.png" alt="Microsoft" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: Palo Alto Networks -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="PaloAlto.png" alt="Palo Alto Networks" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: Red Hat -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="redhat.png" alt="Red Hat" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: Ruckus -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="ruckus.png" alt="Ruckus Networks" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: Sangfor -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="sangfor.png" alt="Sangfor Technologies" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: SAP -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="SAP.png" alt="SAP" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: Sophos -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="sophos.png" alt="Sophos" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: Trend Micro -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="trend-micro.png" alt="Trend Micro" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+				<!-- NEW: Ubuntu -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="ubuntu.png" alt="Ubuntu Linux" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+				<!-- NEW: Veeam -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="veeam.png" alt="Ubuntu Linux" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+				<!-- NEW: VMware -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="vmware.png" alt="Ubuntu Linux" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+				<!-- NEW: Peplink -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="peplink.png" alt="Ubuntu Linux" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+
+                <!-- --- LOOP 2: Duplicate Identical Mirror Set (Guarantees Seamless Loop) --- -->
+                <!-- Cisco (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="cisco.png" alt="Cisco" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- Fortinet (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="fortinet.png" alt="Fortinet" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- Dell (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="dell.png" alt="Dell Enterprise" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- Hewlett Packard Enterprise (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="Hewlett_Packard.png" alt="HPE" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- HPE Aruba Networking (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="hpe-aruba.png" alt="HPE Aruba" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- H3C (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="h3c.png" alt="H3C Technologies" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- Hikvision (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="Hikvision.png" alt="Hikvision Global" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- Dahua Technology (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="dahua.png" alt="Dahua Technology" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- Honeywell (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="honeywell.png" alt="Honeywell Security" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: Huawei (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="huawei.png" alt="Huawei" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: Kaspersky (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="kaspersky.png" alt="Kaspersky" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: Microsoft (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="microsoft.png" alt="Microsoft" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: Palo Alto Networks (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="PaloAlto.png" alt="Palo Alto Networks" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: Red Hat (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="redhat.png" alt="Red Hat" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: Ruckus (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="ruckus.png" alt="Ruckus Networks" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: Sangfor (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="sangfor.png" alt="Sangfor Technologies" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: SAP (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="SAP.png" alt="SAP" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: Sophos (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="sophos.png" alt="Sophos" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                <!-- NEW: Trend Micro (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="trend-micro.png" alt="Trend Micro" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+				<!-- NEW: Ubuntu (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="ubuntu.png" alt="Ubuntu Linux" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+				<!-- NEW: Veeam (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="veeam.png" alt="Ubuntu Linux" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+				<!-- NEW: VMware (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="vmware.png" alt="Ubuntu Linux" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+				<!-- NEW: Peplink (Dup) -->
+                <div class="flex items-center justify-center w-[250px] h-[100px] bg-white border border-gray-200 rounded-xl shadow-sm p-4 shrink-0">
+                    <img src="peplink.png" alt="Ubuntu Linux" class="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300">
+                </div>
+                
             </div>
         </div>
     </section>
