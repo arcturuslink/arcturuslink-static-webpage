@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --color-brand-orange: #FF6B35;
+  --color-brand-grey: #6C757D;
+  --color-brand-darkGrey: #212529;
+  --color-brand-black: #000000;
+  --color-brand-white: #FFFFFF;
+}
+
+.custom-gradient {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(255, 107, 53, 0.3);
+}
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 12px));
+  }
+}
+
+.marquee-rail {
+  display: flex;
+  animation: scrollMarquee 60s linear infinite;
+}
+
+.hover-pause-animation:hover,
+.hover\:pause-animation:hover {
+  animation-play-state: paused !important;
+}
+
+.generic-marquee-container::before,
+.generic-marquee-container::after {
+  background: linear-gradient(to right, rgba(249, 250, 251, 1) 0%, rgba(249, 250, 251, 0) 100%);
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 150px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.generic-marquee-container::before {
+  left: 0;
+  top: 0;
+}
+
+.generic-marquee-container::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+@media (max-width: 640px) {
+  .generic-marquee-container::before,
+  .generic-marquee-container::after {
+    width: 50px;
+  }
+}
